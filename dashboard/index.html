@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dashboard | RENTCAR</title>
+    <link rel="stylesheet" href="../web/css/materialize.css">
+    <link rel="stylesheet" href="../web/css/material-icons.css">
+    <link rel="stylesheet" href="../web/css/all.css">
+    <link rel="stylesheet" href="../web/css/datatables.css">
+</head>
+<body class="sidena-active">
+    <ul id="slide-out" class="sidenav sidenav-fixed">
+        <li>
+            <div class="user-view">
+                <div class="background grey darken-6">
+                    <!-- <img src="images/office.jpg"> -->
+                </div>
+                <a href="#user"><img class="circle" src="../web/img/rent-a-car.svg"></a>
+                <a href="#name"><span class="white-text name">John Doe</span></a>
+                <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
+            </div>
+        </li>
+        <li><a href="index.html"><i class="material-icons">account_circle</i>Usuarios</a></li>
+        <li><a href="#!">Second Link</a></li>
+        <li><div class="divider"></div></li>
+        <li><a class="subheader">Subheader</a></li>
+        <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+    </ul>
+    <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    <main>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="card card-shadow-none">
+                    <div class="card-content">
+                        <div class="row">
+                            <span class="card-title">Registro de Usuarios</span>
+                        </div>
+                        <table id="tableUser" class="responsive hover no-wrap row-border striped">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nombre Usuario</th>
+                                    <th>Apellidos</th>
+                                    <th>Dirección</th>
+                                    <th>Teléfono</th>
+                                    <th>DUI</th>
+                                    <th>NIT</th>
+                                    <th>Pasaporte</th>
+                                    <th>Correo</th>
+                                    <th>Tipo de usuario</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Agregar registro -->
+        <div class="fixed-action-btn">
+            <button class="btn modal-trigger waves-effect waves-circle waves-light btn-floating btn-large blue darken-1" data-target="addUser">
+                <i class="large material-icons">add</i>
+            </button>
+        </div>
+    </main>
+
+    <div id="addUser" class="modal">
+        <form action="">
+            <div class="modal-content">
+                <h4>Registro de Usuario</h4>
+                <div class="row mb-none">
+                    <div class="col s12">
+                        <div class="row mb-none">
+                            <div class="input-field col s12 m6">
+                                <i class="material-icons prefix">account_circle</i>
+                                <input type="text" id="firstname" name="firstname">
+                                <label for="nombre">Nombre de usuario:</label>
+                            </div>
+                            <div class="input-field col s12 m6">
+                                <i class="material-icons prefix">account_circle</i>
+                                <input type="text" id="lastname" name="lastname">
+                                <label for="lastname">Apellidos de usuario:</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-none">
+                    <div class="col s12">
+                        <div class="row mb-none">
+                            <div class="input-field col s12 m6">
+                                <i class="material-icons prefix">account_circle</i>
+                                <textarea type="direc" id="direc" name="direc" class="materialize-textarea"></textarea>
+                                <label for="direc">Dirección de usuario:</label>
+                            </div>
+                            <div class="input-field col s12 m6">
+                                <i class="material-icons prefix">phone</i>
+                                <input type="text" id="phone" name="phone">
+                                <label for="phone">Teléfono de usuario:</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-none">
+                    <div class="col s12">
+                        <div class="row mb-none">
+                            <div class="input-field col s12 m6">
+                                <i class="material-icons prefix">credit_card</i>
+                                <input type="text" id="dui" name="dui">
+                                <label for="dui">DUI de usuario:</label>
+                            </div>
+                            <div class="input-field col s12 m6">
+                                <i class="material-icons prefix">credit_card</i>
+                                <input type="text" id="nit" name="nit">
+                                <label for="nit">NIT de usuario:</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-none">
+                    <div class="col s12">
+                        <div class="row mb-none">
+                            <div class="input-field col s12 m6">
+                                <i class="material-icons prefix">account_box</i>
+                                <input type="text" id="pasa" name="pasa">
+                                <label for="pasa">Pasaporte de usuario:</label>
+                            </div>
+                            <div class="input-field col s12 m6">
+                                <i class="material-icons prefix">email</i>
+                                <input type="text" id="email" name="email">
+                                <label for="email">Correo de usuario:</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-none">
+                    <div class="col s12">
+                        <div class="row mb-none">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">account_box</i>
+                                <input type="password" id="pass" name="pass">
+                                <label for="pass">Contraseña de usuario:</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="modal-close waves-effect waves-green btn-flat">Agregar</button>
+            </div>
+        </form>
+    </div>
+    <script src="../web/js/jquery.min.js"></script>
+    <script src="../web/js/bin/materialize.min.js"></script>
+    <script src="../web/js/datatables.js"></script>
+    <script src="../web/js/initialize.js"></script>
+    <script src="../web/js/users.js"></script>
+</body>
+</html>

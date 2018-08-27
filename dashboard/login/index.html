@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login | Rent a Car</title>
+    <link rel="stylesheet" href="../../web/css/materialize.css">
+    <link rel="stylesheet" href="../../web/css/material-icons.css">
+    <link rel="stylesheet" href="../../web/css/all.css">
+</head>
+<body>
+    <div class="row mb-none">
+        <div class="flex-container justify-content-center align-items-center all-viewport blue darken-1">
+            <div class="card z-depth-4">
+                <div class="card-content center-align">
+                    <img src="../../web/img/rent-a-car.svg" alt="" class="responsive-img" width="200">
+                    <span class="card-title">INICIAR SESIÓN</span>
+                    <form id='frmLogin' class="" method="POST" autocomplete="off">
+                        <div class="row">
+                            <div class="col s12">
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <i class="material-icons prefix">account_circle</i>
+                                        <input type="text" id="user" name="user">
+                                        <label for="user">Ingrese su usuario:</label>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <i class="material-icons prefix">lock</i>
+                                        <input type="password" id="pass" name="pass">
+                                        <label for="pass">Ingrese su contraseña:</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s12">
+                                <button type="submit" name="sesion" id="sesion" class="btn blue darken-1 waves-effect waves-light w-100">Iniciar Sesion</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
