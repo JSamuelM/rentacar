@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Dashboard | RENTCAR</title>
+    <title>Renta | RENTCAR</title>
     <link rel="stylesheet" href="../web/css/materialize.css">
     <link rel="stylesheet" href="../web/css/material-icons.css">
     <link rel="stylesheet" href="../web/css/all.css">
@@ -35,21 +35,20 @@
                 <div class="card card-shadow-none">
                     <div class="card-content">
                         <div class="row">
-                            <span class="card-title">Registro de Usuarios</span>
+                            <span class="card-title">Registro de Rentas</span>
                         </div>
                         <table id="tableUser" class="responsive hover no-wrap row-border striped">
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Nombre Usuario</th>
-                                    <th>Apellidos</th>
-                                    <th>Dirección</th>
-                                    <th>Teléfono</th>
+                                    <th>Usuario</th>
+                                    <th>Código Vehiculo</th>
+                                    <th>Fecha Renta</th>
+                                    <th>Fecha Devolución</th>
                                     <th>DUI</th>
-                                    <th>NIT</th>
-                                    <th>Pasaporte</th>
-                                    <th>Correo</th>
-                                    <th>Tipo de usuario</th>
+                                    <th></th>
+                                    <th>Pago en</th>
+                                    <th>Estado</th>
                                 </tr>
                             </thead>
                         </table>
@@ -60,28 +59,28 @@
 
         <!-- Agregar registro -->
         <div class="fixed-action-btn">
-            <button class="btn modal-trigger waves-effect waves-circle waves-light btn-floating btn-large blue darken-1" data-target="addUser">
+            <button class="btn modal-trigger waves-effect waves-circle waves-light btn-floating btn-large blue darken-1" data-target="addRent">
                 <i class="large material-icons">add</i>
             </button>
         </div>
     </main>
 
-    <div id="addUser" class="modal">
+    <div id="addRent" class="modal">
         <form action="">
             <div class="modal-content">
-                <h4>Registro de Usuario</h4>
+                <h4>Registro de Renta</h4>
                 <div class="row mb-none">
                     <div class="col s12">
                         <div class="row mb-none">
                             <div class="input-field col s12 m6">
                                 <i class="material-icons prefix">account_circle</i>
-                                <input type="text" id="firstname" name="firstname">
-                                <label for="nombre">Nombre de usuario:</label>
+                                <select name="user" id="user"></select>
+                                <label for="user">Usuario:</label>
                             </div>
                             <div class="input-field col s12 m6">
-                                <i class="material-icons prefix">account_circle</i>
-                                <input type="text" id="lastname" name="lastname">
-                                <label for="lastname">Apellidos de usuario:</label>
+                                <i class="material-icons prefix">directions_car</i>
+                                <input type="text" id="car" name="car">
+                                <label for="car">Código del Vehiculo:</label>
                             </div>
                         </div>
                     </div>
@@ -91,13 +90,13 @@
                         <div class="row mb-none">
                             <div class="input-field col s12 m6">
                                 <i class="material-icons prefix">account_circle</i>
-                                <textarea type="text" id="direc" name="direc" class="materialize-textarea"></textarea>
-                                <label for="direc">Dirección de usuario:</label>
+                                <input type="text" id="fechRent" name="fechRent" class="datepicker">
+                                <label for="fechRent">Fecha de renta:</label>
                             </div>
                             <div class="input-field col s12 m6">
                                 <i class="material-icons prefix">phone</i>
-                                <input type="text" id="phone" name="phone">
-                                <label for="phone">Teléfono de usuario:</label>
+                                <input type="text" id="fechDevo" name="fechDevo" class="datepicker">
+                                <label for="fechDevo">Fecha de devolución:</label>
                             </div>
                         </div>
                     </div>
@@ -112,24 +111,8 @@
                             </div>
                             <div class="input-field col s12 m6">
                                 <i class="material-icons prefix">credit_card</i>
-                                <input type="text" id="nit" name="nit">
-                                <label for="nit">NIT de usuario:</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mb-none">
-                    <div class="col s12">
-                        <div class="row mb-none">
-                            <div class="input-field col s12 m6">
-                                <i class="material-icons prefix">account_box</i>
-                                <input type="text" id="pasa" name="pasa">
-                                <label for="pasa">Pasaporte de usuario:</label>
-                            </div>
-                            <div class="input-field col s12 m6">
-                                <i class="material-icons prefix">email</i>
-                                <input type="text" id="email" name="email">
-                                <label for="email">Correo de usuario:</label>
+                                <input type="text" id="pay" name="pay">
+                                <label for="pay">Tipo de pago:</label>
                             </div>
                         </div>
                     </div>
@@ -139,8 +122,8 @@
                         <div class="row mb-none">
                             <div class="input-field col s12">
                                 <i class="material-icons prefix">account_box</i>
-                                <input type="password" id="pass" name="pass">
-                                <label for="pass">Contraseña de usuario:</label>
+                                <select id="state" name="state"></select>
+                                <label for="state">Estado de renta:</label>
                             </div>
                         </div>
                     </div>
