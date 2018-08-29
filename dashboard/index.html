@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Dashboard | RENTCAR</title>
+    <title>Usuarios | RENTCAR</title>
     <link rel="stylesheet" href="../web/css/materialize.css">
     <link rel="stylesheet" href="../web/css/material-icons.css">
     <link rel="stylesheet" href="../web/css/all.css">
@@ -23,7 +23,7 @@
             </div>
         </li>
         <li><a href="index.html"><i class="material-icons">account_circle</i>Usuarios</a></li>
-        <li><a href="renta.html">Renta</a></li>
+        <li><a href="renta.html"><i class="material-icons">directions_car</i>Renta</a></li>
         <li><div class="divider"></div></li>
         <li><a class="subheader">Subheader</a></li>
         <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
@@ -41,17 +41,16 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Nombre Usuario</th>
+                                    <th>Nombres</th>
                                     <th>Apellidos</th>
-                                    <th>Dirección</th>
-                                    <th>Teléfono</th>
                                     <th>DUI</th>
-                                    <th>NIT</th>
-                                    <th>Pasaporte</th>
                                     <th>Correo</th>
                                     <th>Tipo de usuario</th>
+                                    <th>Acciones</th>
                                 </tr>
                             </thead>
+                            <tbody id="tablita">
+                            </tbody>
                         </table>
                     </div>
                 </div>
@@ -76,7 +75,7 @@
                             <div class="input-field col s12 m6">
                                 <i class="material-icons prefix">account_circle</i>
                                 <input type="text" id="firstname" name="firstname">
-                                <label for="nombre">Nombre de usuario:</label>
+                                <label for="nombre">Nombres de usuario:</label>
                             </div>
                             <div class="input-field col s12 m6">
                                 <i class="material-icons prefix">account_circle</i>
@@ -135,7 +134,7 @@
                     </div>
                 </div>
                 <div class="row mb-none">
-                    <div class="col s12">
+                    <div class="col s6">
                         <div class="row mb-none">
                             <div class="input-field col s12">
                                 <i class="material-icons prefix">account_box</i>
@@ -144,10 +143,129 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col s6">
+                        <div class="row mb-none">
+                            <div class="input-field col s12">
+                                <select class="browser-default" name="tipoUsua" id="tipoUsua">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="modal-close waves-effect waves-green btn-flat">Agregar</button>
+                <input type="button" onclick="creaUsua();" class="modal-close waves-effect waves-green btn-flat" value="Agregar">
+            </div>
+        </form>
+    </div>
+
+    <div id="updateUser" class="modal">
+        <form action="">
+            <div class="modal-content">
+                <h4>Modificar de Usuario</h4>
+                <div class="row mb-none">
+                    <div class="col s12">
+                        <input type="text" name="codiUpda" id="codiUpda">
+                        <div class="row mb-none">
+                            <div class="input-field col s12 m6">
+                                <i class="material-icons prefix">account_circle</i>
+                                <input type="text" id="firstnameUpda" name="firstnameUpda">
+                                <label for="firstnameUpda">Nombres de usuario:</label>
+                            </div>
+                            <div class="input-field col s12 m6">
+                                <i class="material-icons prefix">account_circle</i>
+                                <input type="text" id="lastnameUpda" name="lastnameUpda">
+                                <label for="lastnameUpda">Apellidos de usuario:</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-none">
+                    <div class="col s12">
+                        <div class="row mb-none">
+                            <div class="input-field col s12 m6">
+                                <i class="material-icons prefix">account_circle</i>
+                                <textarea type="text" id="direcUpda" name="direcUpda" class="materialize-textarea"></textarea>
+                                <label for="direcUpda">Dirección de usuario:</label>
+                            </div>
+                            <div class="input-field col s12 m6">
+                                <i class="material-icons prefix">phone</i>
+                                <input type="text" id="phoneUpda" name="phoneUpda">
+                                <label for="phoneUpda">Teléfono de usuario:</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-none">
+                    <div class="col s12">
+                        <div class="row mb-none">
+                            <div class="input-field col s12 m6">
+                                <i class="material-icons prefix">credit_card</i>
+                                <input type="text" id="duiUpda" name="duiUpda">
+                                <label for="duiUpda">DUI de usuario:</label>
+                            </div>
+                            <div class="input-field col s12 m6">
+                                <i class="material-icons prefix">credit_card</i>
+                                <input type="text" id="nitUpda" name="nitUpda">
+                                <label for="nitUpda">NIT de usuario:</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-none">
+                    <div class="col s12">
+                        <div class="row mb-none">
+                            <div class="input-field col s12 m6">
+                                <i class="material-icons prefix">account_box</i>
+                                <input type="text" id="pasaUpda" name="pasaUpda">
+                                <label for="pasaUpda">Pasaporte de usuario:</label>
+                            </div>
+                            <div class="input-field col s12 m6">
+                                <i class="material-icons prefix">email</i>
+                                <input type="text" id="emailUpda" name="emailUpda">
+                                <label for="emailUpda">Correo de usuario:</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-none">
+                    <div class="col s6">
+                        <div class="row mb-none">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">account_box</i>
+                                <input type="password" id="passUpda" name="passUpda">
+                                <label for="passUpda" >Contraseña de usuario:</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s6">
+                        <div class="row mb-none">
+                            <div class="col s12">
+                                <select class="browser-default" name="tipoUsuaUpda" id="tipoUsuaUpda">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <input type="button" onclick="updaUsua();" class="modal-close waves-effect waves-green blue white-text btn-flat" value="Modificar">
+            </div>
+        </form>
+    </div>
+    <div id="deleteUser" class="modal">
+        <form action="">
+            <div class="modal-content">
+                <h4>Eliminar de Usuario</h4>
+                <div class="row mb-none">
+                    <div class="col s12">
+                        <input type="hidden" name="codiDele" id="codiDele">
+                        <p>Estas a punto de eliminar este usuario, una vez borrado ya no se puede recuperar</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <input type="button" onclick="deleUsua();" class="modal-close waves-effect waves-green red white-text btn-flat" value="Eliminar">
             </div>
         </form>
     </div>
