@@ -45,12 +45,13 @@
                                     <th>Código Vehiculo</th>
                                     <th>Fecha Renta</th>
                                     <th>Fecha Devolución</th>
-                                    <th>DUI</th>
-                                    <th></th>
+                                    <th>Total</th>
                                     <th>Pago en</th>
                                     <th>Estado</th>
                                 </tr>
                             </thead>
+                            <tbody id="tablita">
+                            </tbody>
                         </table>
                     </div>
                 </div>
@@ -73,14 +74,16 @@
                     <div class="col s12">
                         <div class="row mb-none">
                             <div class="input-field col s12 m6">
-                                <i class="material-icons prefix">account_circle</i>
-                                <select name="user" id="user"></select>
-                                <label for="user">Usuario:</label>
+                                <p>Usuario:</p>
+                                <select class="browser-default" name="user" id="user">
+
+                                </select>
+                                
                             </div>
                             <div class="input-field col s12 m6">
-                                <i class="material-icons prefix">directions_car</i>
-                                <input type="text" id="car" name="car">
-                                <label for="car">Código del Vehiculo:</label>
+                                <p>Codigo del vehiculo:</p>
+                                <select class="browser-default" id="car" name="car"></select>
+                                
                             </div>
                         </div>
                     </div>
@@ -89,12 +92,12 @@
                     <div class="col s12">
                         <div class="row mb-none">
                             <div class="input-field col s12 m6">
-                                <i class="material-icons prefix">account_circle</i>
+                               
                                 <input type="text" id="fechRent" name="fechRent" class="datepicker">
                                 <label for="fechRent">Fecha de renta:</label>
                             </div>
                             <div class="input-field col s12 m6">
-                                <i class="material-icons prefix">phone</i>
+                                
                                 <input type="text" id="fechDevo" name="fechDevo" class="datepicker">
                                 <label for="fechDevo">Fecha de devolución:</label>
                             </div>
@@ -105,35 +108,76 @@
                     <div class="col s12">
                         <div class="row mb-none">
                             <div class="input-field col s12 m6">
-                                <i class="material-icons prefix">credit_card</i>
-                                <input type="text" id="dui" name="dui">
-                                <label for="dui">DUI de usuario:</label>
+                                <br>
+                                <input type="text" id="total" name="total" >
+                                <label for="total">Total a pagar:</label>
                             </div>
                             <div class="input-field col s12 m6">
-                                <i class="material-icons prefix">credit_card</i>
-                                <input type="text" id="pay" name="pay">
-                                <label for="pay">Tipo de pago:</label>
+                                <p>Metodo de pago</p>
+                                <select class="browser-default" id="pay" name="pay"></select>
+                            
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row mb-none">
-                    <div class="col s12">
-                        <div class="row mb-none">
-                            <div class="input-field col s12">
-                                <i class="material-icons prefix">account_box</i>
-                                <select id="state" name="state"></select>
-                                <label for="state">Estado de renta:</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              
             </div>
             <div class="modal-footer">
-                <button type="button" class="modal-close waves-effect waves-green btn-flat">Agregar</button>
+                <button type="button" class="modal-close waves-effect waves-green btn-flat" onclick="creaRent();">Agregar</button>
             </div>
         </form>
     </div>
+
+    <!--modificar-->
+    
+    <div id="updateEstado" class="modal">
+                <form action="">
+                    <div class="modal-content">
+                        <h4>Modificar de Renta</h4>
+                        <div class="row mb-none">
+                            <div class="col s12">
+                                    <input type="text" name="codiUpda" id="codiUpda" hidden="true" disabled>
+                                    <div class="row mb-none">
+                                            <div class="col s12">
+                                                <div class="row mb-none">
+                                                    
+                                                    <div class="input-field col s12 m6">
+                                                        <p>Estado:</p>
+                                                        <select class="browser-default" id="estadoU" name="estadoU">
+                                                            <option value="0">No pagado</option>
+                                                            <option value="1">Pagado</option>
+                                                        </select>
+                                                
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="button" onclick="updaRent();" class="modal-close waves-effect waves-green blue white-text btn-flat" value="Modificar">
+                    </div>
+                </form>
+    </div>
+  
+
+        <!--eliminar-->
+        <div id="deleteRenta" class="modal">
+            <form action="">
+                <div class="modal-content">
+                    <h4>Eliminar de Rentas</h4>
+                    <div class="row mb-none">
+                        <div class="col s12">
+                            <input type="hidden" name="codiDele" id="codiDele">
+                            <p>Estas a punto de eliminar esta renta, una vez borrado ya no se puede recuperar</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="button" onclick="deleRent();" class="modal-close waves-effect waves-green red white-text btn-flat" value="Eliminar">
+                </div>
+            </form>
+        </div>
     <script src="../web/js/jquery.min.js"></script>
     <script src="../web/js/bin/materialize.min.js"></script>
     <script src="../web/js/datatables.js"></script>

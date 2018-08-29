@@ -1,5 +1,5 @@
-var urlU = "http://localhost:8080/rentcar/Usuario/";
-var urlTU = "http://localhost:8080/rentcar/TipoUsuario/";
+var urlU = "http://ec2-18-219-43-45.us-east-2.compute.amazonaws.com:8080/rentcarJava/Usuario/";
+var urlTU = "http://ec2-18-219-43-45.us-east-2.compute.amazonaws.com:8080/rentcarJava/TipoUsuario/";
 $(document).ready(function() {
     obteUsua();
     obteTipo();
